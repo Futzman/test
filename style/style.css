@@ -1,0 +1,40 @@
+   
+/*body {  
+    background-color: white;
+    background-image: linear-gradient( 45deg,black 25%, transparent 25%, transparent 74%, black 75%, black), 
+    linear-gradient( 45deg,black 25%, transparent 25%, transparent 74%, black 75%, black);
+    background-size:100px 100px;
+    background-position: 0 0, 50px 50px;
+    }*/
+    tr{
+        
+    }
+   .chess-board { 
+       
+        border-spacing: 0; 
+        border-collapse: collapse;
+        text-align :center;
+     }
+    .chess-board th {
+         padding: .5em; 
+         text-align :center;
+        }
+    .chess-board .rt{
+        transform: rotate(180deg);
+        text-align :center;
+    }
+    .chess-board td { 
+        width: 2em;
+        height: 2em; 
+        font-style:inherit;
+        text-align :center;
+    }
+    .chess-board .light { 
+        background: #eee;
+        text-align :center;
+     }
+    .chess-board .dark { background: rgb(49, 48, 48); }
+    
+    .col{
+        color: darkred;
+    }
