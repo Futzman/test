@@ -36,7 +36,7 @@
         text-align :center;
     }
     .chess-board .light { 
-        background: #eee;
+        background: rgb(255, 255, 255);
         text-align :center;
      }
     .chess-board .dark { background: rgb(49, 48, 48); }

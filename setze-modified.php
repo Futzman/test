@@ -3,10 +3,23 @@
     </head>
     <body>
     <?php
+    global $color;
+    global $figure;
+
+    
+
     function setze($c, $r ,$f, $fcolor){
-        #echo "{$c} <br>";
-        #echo "{$r} <br>";
-        #echo "{$f} <br>";
+        
+        static $color;
+        static $figuire;
+
+        
+        if ($f == 355){
+            $f = $figuire;
+            $fcolor = $color;
+            echo"<ww> {$f} :::: {$fcolor} </ww>";
+        }
+        
 
         $letters = array("A","B","C","D","E","F","G","H");
         $index = 0;
@@ -41,11 +54,17 @@
             for($j=1; $j<9; $j++){
                 $num = (8 * ($i - 1)) + $j;
                 if(fmod($i+$j,2) == 0){
-                    if($j ==$index && $i == $r) 
-                        if($fcolor == 'white')
+                    if($j == $index && $i == $r) 
+                        if($fcolor == 'white'){
                             echo"<td class='colblack light'>$charactersNotFill[$characterIndex]</td>";
-                        else
+                            $color = 'white';
+                            $figuire = $charactersNotFill[$characterIndex];
+                        }
+                        else {
                             echo"<td class='colblack light'>$charactersFill[$characterIndex]</td>";
+                            $color = 'white';
+                            $figuire = $charactersFill[$characterIndex];
+                        }
                     else
                         echo"<td class='light'></td>";
                     }
@@ -53,8 +72,11 @@
                     if($j == $index && $i == $r) 
                         if($fcolor == 'white')
                           echo"<td class='colwhite dark'>$f</td>";
-                        else
+                        else{
                           echo"<td class='colwhite dark'>$charactersNotFill[$characterIndex]</td>";
+                          $color = 'white';
+                          $figuire = $charactersFill[$characterIndex];      
+                        }
                     else 
                         echo"<td class='dark'></td>";
                     }
