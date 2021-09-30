@@ -6,35 +6,38 @@
             <tbody>
                 <tr>
                   <?php
-                  function zeichne(){
-                    $letters = array("A","B","C","D","E","F","G","H");
-                    echo"<th></th>";
-                    foreach($letters As $headerLetters){
-                      echo"<th>{$headerLetters}</th>";
-                    }
-                    echo"</tr>";
-                    for($i=1; $i<9;$i++){
-                      echo"<tr>";
-                      echo"<th>{$i}</th>";
-                      for($j=1; $j<9; $j++){
-                        $num = (8 * ($i - 1)) + $j;
-                        if(fmod($i+$j,2) == 0){
-                          echo"<td class='light'>{$num}</td>";
-                        }
-                        else{
-                          echo"<td class='dark'>{$num}</td>";
-                        }
-                      }
-                      echo"<th class='rt'>{$i}</th>";
-                      echo"</tr>";
-                    }
-                    echo"<th></th>";
-                    foreach($letters As $headerLetters){
-                      echo"<th class='rt'>{$headerLetters}</th>";
-                    }
-                    
-                  }
+#region Sub Zeichne()
+function zeichne(){
+  $letters = array("A","B","C","D","E","F","G","H");
+  echo"<th></th>";
+  foreach($letters As $headerLetters){
+    echo"<th>{$headerLetters}</th>";
+  }
+  echo"</tr>";
+  for($i=1; $i<9;$i++){
+    echo"<tr>";
+    echo"<th>{$i}</th>";
+    for($j=1; $j<9; $j++){
+      $num = (8 * ($i - 1)) + $j;
+      if(fmod($i+$j,2) == 0){
+        echo"<td class='light'>{$num}</td>";
+      }
+      else{
+        echo"<td class='dark'>{$num}</td>";
+      }
+    }
+    echo"<th class='rt'>{$i}</th>";
+    echo"</tr>";
+  }
+  echo"<th></th>";
+  foreach($letters As $headerLetters){
+    echo"<th class='rt'>{$headerLetters}</th>";
+  }
+  
+}
 
+#endregion                  
+                  
                   function setze($c, $r){
                     echo "<br>";
                     $letters = array("A","B","C","D","E","F","G","H");

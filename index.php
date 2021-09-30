@@ -4,11 +4,11 @@
     </head>
     <body>
       <?php
-        include("setze.php");
+        include("setze-modified.php");
         if(isset($_GET['row'])&&isset($_GET['column'])){
-          setze("C", 3);
+          setze($_GET['row'], $_GET['column']);
         }
-        else zeichne()
+        else setze(0,0)
       ?>
 
     <form action="?" method="get" class="form-example">

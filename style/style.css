@@ -36,5 +36,6 @@
     .chess-board .dark { background: rgb(49, 48, 48); }
     
     .col{
-        color: darkred;
+        color: rgb(206, 9, 9);
+        font-size: 26px;
     }
