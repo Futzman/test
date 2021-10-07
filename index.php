@@ -13,11 +13,11 @@
           setze($_GET['row'], $_GET['column'], $_GET['figur'], $_GET['figurcolor']);
           $figurGesetzt = 1;
         }
-        else if(!isset($_GET['figur']) && isset($_GET['row'])){
-          setze($_GET['row'], $_GET['column'], $prevFigur, $prevColor);
-      
-        }
         else setze(0, 0, 0, 0);
+
+        if(isset($_GET['row']) && isset($_GET['column']) && !isset($_GET['figurcolor']) && !isset($_GET['figur'])){
+          #setze($_GET['row'], $_GET['column'], 'none', 'none');
+        }
         if(isset($_GET['toMove']))
           $toMove = 1;
         else

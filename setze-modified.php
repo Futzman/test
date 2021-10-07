@@ -12,15 +12,6 @@
         
         static $color;
         static $figuire;
-
-        
-        if ($f == 355){
-            $f = $figuire;
-            $fcolor = $color;
-            echo"<ww> {$f} :::: {$fcolor} </ww>";
-        }
-        
-
         $letters = array("A","B","C","D","E","F","G","H");
         $index = 0;
         for($i = 0; $i < 8; $i++){
