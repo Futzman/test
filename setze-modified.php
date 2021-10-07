@@ -32,7 +32,7 @@
         //$brett = file_get_contents($jBoard);
         
         //$chess = json_encode($brett);
-        if($r == $rTo && $cTo == $c && $r == 0){
+        if($r == $rTo && $cTo == $c && $r == 0 && $rTo == 0){
             $jBoard = "schach-pos.json";
             $chessColor = array(array(array("♜","bl"),array("♞","bl"), array("♝","bl"),array("♚","bl"),array("♛","bl"),array("♝","bl"), array("♞","bl"),array("♜","bl")),
                  array(array("♟","bl"),array("♟","bl"), array("♟","bl"),array("♟","bl"),array("♟","bl"),array("♟","bl"), array("♟","bl"),array("♟","bl")),
@@ -67,12 +67,7 @@
         
 
         $letters = array("A","B","C","D","E","F","G","H");
-        $index = 0;
-        for($i = 0; $i < 8; $i++){
-            if($letters[$i] == $c){
-                $index = $i + 1;
-            }
-        }
+       
 
         $characters = array("♜","♞","♝","♛","♚","♟","♖","♘","♗","♕", "♔", "♙");
         $charactersNotFill = array("♖","♘","♗","♕", "♔", "♙");

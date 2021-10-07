@@ -5,7 +5,8 @@
     <body>
       <?php
         include("setze-modified.php");
-        if(!isset($_GET['row']))
+
+        if(!isset($_GET['row'])||isset($_GET['neuStart']))
           setze(0,0,0,0);
         else{
           setze($_GET['row'], $_GET['column'] - 1, $_GET['rowTo'], $_GET['columnTo'] - 1);
@@ -76,6 +77,8 @@
         
         <abstand>  </abstand>
         <input type="submit" value="Go">
+        <abstand>  </abstand>
+        <button onclick="setze(0,0,0,0)">Neustart</button>
         <hr>
     </form>
 
