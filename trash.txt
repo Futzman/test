@@ -1,0 +1,21 @@
+<select name = "figur" id = "figur" <?php if($toMove) echo"disabled = disabled;"?>>
+          <option value = "♜"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♜") echo "selected=\"selected\"";?>>♜</option>
+          <option value = "♞"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♞") echo "selected=\"selected\"";?>>♞</option>
+          <option value = "♝"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♝") echo "selected=\"selected\"";?>>♝</option>
+          <option value = "♛"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♛") echo "selected=\"selected\"";?>>♛</option>
+          <option value = "♚"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♚") echo "selected=\"selected\"";?>>♚</option>
+          <option value = "♟"<?php if(isset($_GET['figur']) && $_GET['figur'] == "♟") echo "selected=\"selected\"";?>>♟</option>
+        </select>
+        <select name = "figurcolor" id = "figurcolor" <?php if($toMove) echo"disabled = disabled;"?>>
+          <option value = "white"<?php if(isset($_GET['figurcolor']) && $_GET['figurcolor'] == "white") echo "selected=\"selected\"";?>>white</option>
+          <option value = "black"<?php if(isset($_GET['figurcolor']) && $_GET['figurcolor'] == "black") echo "selected=\"selected\"";?>>black</option>
+        </select>
+        <input type = "checkbox" id = "moveToField" name="toMove" value="moveIt"<?php 
+                                                                                if(!isset($figurGesetzt) || $figurGesetzt == 0) 
+                                                                                    echo "disabled = disabled"; 
+                                                                                if(isset($_GET['toMove'])){
+                                                                                  echo "checked=checked  onchange='submit()'";
+                                                                                }
+                                                                                else
+                                                                                  echo "onchange='submit()'";
+                                                                               ?> >

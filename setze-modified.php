@@ -17,25 +17,24 @@
         }
     }
 
-    function setze($c, $r ,$f, $fcolor){
+    function IndexOfChar($ch){
+        $letters = array("A","B","C","D","E","F","G","H");
+        for($i = 0; $i < 8; $i++){
+            if($letters[$i] == $ch){
+                return $i;
+            }
+        }
+    }
+
+    function setze($r, $c ,$rTo, $cTo){
         
-        static $color;
-        static $figuire;
-        $jBoard = "schach-pos.json";
-        $brett = file_get_contents($jBoard);
+       
+        //$brett = file_get_contents($jBoard);
         
         //$chess = json_encode($brett);
-
-        $chess = array(array("♜", "♞", "♝","♚","♛","♝","♞","♜"),
-        array("♟","♟","♟","♟","♟","♟","♟","♟"),
-         array(" ", " ", " ", " "," ", " "," ", " "),
-         array(" ", " ", " ", " "," ", " "," ", " "),
-         array(" ", " ", " ", " "," ", " "," ", " "),
-         array(" ", " ", " ", " "," ", " "," ", " "),
-         array("♙","♙","♙","♙","♙","♙","♙","♙"),
-         array("♖", "♘","♗" ,"♔","♕","♗","♘","♖"));
-
-        $chessColor = array(array(array("♜","bl"),array("♞","bl"), array("♝","bl"),array("♚","bl"),array("♛","bl"),array("♝","bl"), array("♞","bl"),array("♜","bl")),
+        if($r == $rTo && $cTo == $c && $r == 0){
+            $jBoard = "schach-pos.json";
+            $chessColor = array(array(array("♜","bl"),array("♞","bl"), array("♝","bl"),array("♚","bl"),array("♛","bl"),array("♝","bl"), array("♞","bl"),array("♜","bl")),
                  array(array("♟","bl"),array("♟","bl"), array("♟","bl"),array("♟","bl"),array("♟","bl"),array("♟","bl"), array("♟","bl"),array("♟","bl")),
                  array(array("","none"),array("","none"), array("","none"),array("","none"),array("","none"),array("","none"), array("","none"),array("","none")),
                  array(array("","none"),array("","none"), array("","none"),array("","none"),array("","none"),array("","none"), array("","none"),array("","none")),
@@ -44,11 +43,28 @@
                  array(array("♙","wh"),array("♙","wh"), array("♙","wh"),array("♙","wh"),array("♙","wh"),array("♙","wh"), array("♙","wh"),array("♙","wh")),
                  array(array("♖","wh"),array("♘","wh"), array("♗","wh"),array("♔","wh"),array("♕","wh"),array("♗","wh"), array("♘","wh"),array("♖","wh")));
 
-         
+        
+        $jChess = json_encode($chessColor);
+        
+        file_put_contents($jBoard, $jChess);
+        }
+        else{
+            $jBoard = "schach-pos.json";
+            $brett = file_get_contents($jBoard);
+            $chessColor = json_decode($brett);
+            
+            $figur = $chessColor[$c][indexOfChar($r)][0];
+            $figurColor = $chessColor[$c][indexOfChar($r)][1];
+            $chessColor[$c][indexOfChar($r)][0] = "";
+            $chessColor[$c][indexOfChar($r)][1] = "none";
+            $chessColor[$cTo][indexOfChar($rTo)][0] = $figur;
+            $chessColor[$cTo][indexOfChar($rTo)][1] = $figurColor;
+            
+            $jChess = json_encode($chessColor);
+            file_put_contents($jBoard, $jChess);
+        }
        
-        //echo "<pre>";
-        //print($chess[0][0]);
-        //echo "</pre>";
+        
 
         $letters = array("A","B","C","D","E","F","G","H");
         $index = 0;
